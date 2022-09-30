@@ -50,118 +50,116 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-          top: MediaQuery.of(context).size.height * 0.2, left: 30, right: 30),
-      child: ListView(
-        children: [
-          DottedBorder(
-            dashPattern: [20, 20],
-            color: kPrimaryColor,
-            borderType: BorderType.RRect,
-            radius: Radius.circular(12),
-            padding: EdgeInsets.all(15),
-            child: Stack(
-              children: [
-                GestureDetector(
-                  onTap: () => showModalBottomSheet(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)),
-                      context: context,
-                      builder: (context) => Container(
-                            padding: EdgeInsets.all(16),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Center(
-                                  child: Container(
-                                    width: 40,
-                                    height: 4,
-                                    color: kSecondBlackColor.withOpacity(0.1),
+    return ListView(
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).size.height * 0.3, left: 30, right: 30),
+      children: [
+        DottedBorder(
+          dashPattern: [20, 20],
+          color: kPrimaryColor,
+          borderType: BorderType.RRect,
+          radius: Radius.circular(12),
+          padding: EdgeInsets.all(15),
+          child: Stack(
+            children: [
+              GestureDetector(
+                onTap: () => showModalBottomSheet(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                    context: context,
+                    builder: (context) => Container(
+                          padding: EdgeInsets.all(16),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Center(
+                                child: Container(
+                                  width: 40,
+                                  height: 4,
+                                  color: kSecondBlackColor.withOpacity(0.1),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Text(
+                                "Ambil Photo",
+                                style: blackTextStyle.copyWith(
+                                    fontSize: 18, fontWeight: semiBold),
+                              ),
+                              SizedBox(height: 20),
+                              Row(
+                                children: [
+                                  CustomSelectedPhoto(
+                                    imgUrl: "assets/icon/icon_camera.png",
+                                    text: "Kamera",
+                                    onTap: () {
+                                      Navigator.pop(context);
+                                      _pickCamera();
+                                    },
                                   ),
-                                ),
-                                SizedBox(height: 20),
-                                Text(
-                                  "Ambil Photo",
-                                  style: blackTextStyle.copyWith(
-                                      fontSize: 18, fontWeight: semiBold),
-                                ),
-                                SizedBox(height: 20),
-                                Row(
-                                  children: [
-                                    CustomSelectedPhoto(
-                                      imgUrl: "assets/icon/icon_camera.png",
-                                      text: "Kamera",
+                                  SizedBox(width: 25),
+                                  CustomSelectedPhoto(
                                       onTap: () {
                                         Navigator.pop(context);
-                                        _pickCamera();
+                                        _pickFileUpload();
                                       },
-                                    ),
-                                    SizedBox(width: 25),
-                                    CustomSelectedPhoto(
-                                        onTap: () {
-                                          Navigator.pop(context);
-                                          _pickFileUpload();
-                                        },
-                                        imgUrl: "assets/icon/icon_galery.png",
-                                        text: "Galeri")
-                                  ],
-                                )
-                              ],
-                            ),
-                          )),
-                  child: _image == null
-                      ? Container(
-                          width: double.infinity,
-                          height: 200,
-                          decoration: BoxDecoration(
-                            color: kGreyColor.withOpacity(0.4),
-                            borderRadius: BorderRadius.circular(12),
+                                      imgUrl: "assets/icon/icon_galery.png",
+                                      text: "Galeri")
+                                ],
+                              )
+                            ],
                           ),
-                          child: Center(
-                            child: Text(
-                              "Press Button",
-                              style: kGreyTextStyle.copyWith(
-                                  fontSize: 16, fontWeight: semiBold),
-                            ),
-                          ),
-                        )
-                      : Column(
-                          children: [
-                            Container(
-                              width: double.infinity,
-                              height: 200,
-                              decoration: BoxDecoration(
-                                color: kGreyColor.withOpacity(0.4),
-                                borderRadius: BorderRadius.circular(12),
-                                image: DecorationImage(
-                                    image: FileImage(
-                                      File(_image!.path),
-                                    ),
-                                    fit: BoxFit.cover),
-                              ),
-                            ),
-                          ],
+                        )),
+                child: _image == null
+                    ? Container(
+                        width: double.infinity,
+                        height: 200,
+                        decoration: BoxDecoration(
+                          color: kGreyColor.withOpacity(0.4),
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                ),
-                _image != null
-                    ? Align(
-                        alignment: Alignment.centerRight,
-                        child: GestureDetector(
-                          onTap: _clearPickImage,
-                          child: Image.asset(
-                            "assets/icon/icon_close.png",
-                            width: 25,
+                        child: Center(
+                          child: Text(
+                            "Press Button",
+                            style: kGreyTextStyle.copyWith(
+                                fontSize: 16, fontWeight: semiBold),
                           ),
-                        ))
-                    : SizedBox(),
-              ],
-            ),
+                        ),
+                      )
+                    : Column(
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              color: kGreyColor.withOpacity(0.4),
+                              borderRadius: BorderRadius.circular(12),
+                              image: DecorationImage(
+                                  image: FileImage(
+                                    File(_image!.path),
+                                  ),
+                                  fit: BoxFit.cover),
+                            ),
+                          ),
+                        ],
+                      ),
+              ),
+              _image != null
+                  ? Align(
+                      alignment: Alignment.centerRight,
+                      child: GestureDetector(
+                        onTap: _clearPickImage,
+                        child: Image.asset(
+                          "assets/icon/icon_close.png",
+                          width: 25,
+                        ),
+                      ))
+                  : SizedBox(),
+            ],
           ),
-          _image != null ? CustomButton(onPressed: () {}) : SizedBox()
-        ],
-      ),
+        ),
+        _image != null ? CustomButton(onPressed: () {}) : SizedBox(),
+      ],
     );
   }
 }

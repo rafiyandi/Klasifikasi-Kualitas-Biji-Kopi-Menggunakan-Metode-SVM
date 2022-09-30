@@ -33,6 +33,7 @@ class _MainPageState extends State<MainPage> {
         backgroundColor: kBackgroundColor,
         body: Stack(
           children: [
+            buildContent(),
             CustomButtomNavigationBar(
               onChange: (val) {
                 setState(() {
@@ -41,7 +42,6 @@ class _MainPageState extends State<MainPage> {
               },
               defaultSelectedIndex: 0,
             ),
-            buildContent()
           ],
         ));
   }
