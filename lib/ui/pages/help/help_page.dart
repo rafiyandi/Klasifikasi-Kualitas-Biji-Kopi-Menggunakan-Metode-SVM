@@ -1,8 +1,5 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kopi/ui/pages/help/custom_step_bantuan.dart';
-import 'package:kopi/ui/style/theme.dart';
 
 class HelpPage extends StatelessWidget {
   const HelpPage({super.key});
@@ -11,8 +8,9 @@ class HelpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: ListView(
-        padding: EdgeInsets.only(left: 24, right: 24, top: 30, bottom: 30),
-        children: [
+        padding:
+            const EdgeInsets.only(left: 24, right: 24, top: 30, bottom: 30),
+        children: const [
           SizedBox(height: 20),
           CustomStepBantuan(
               imgUrl: "assets/image/image_bantuan1.png",

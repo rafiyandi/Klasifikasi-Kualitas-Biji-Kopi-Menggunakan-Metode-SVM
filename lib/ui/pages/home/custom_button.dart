@@ -10,7 +10,7 @@ class CustomButton extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 48,
-      margin: EdgeInsets.only(top: 70),
+      margin: const EdgeInsets.only(top: 70),
       child: TextButton(
         onPressed: () {},
         style: TextButton.styleFrom(

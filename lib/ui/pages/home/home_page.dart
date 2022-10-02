@@ -55,21 +55,21 @@ class _HomePageState extends State<HomePage> {
           top: MediaQuery.of(context).size.height * 0.3, left: 30, right: 30),
       children: [
         DottedBorder(
-          dashPattern: [20, 20],
+          dashPattern: const [20, 20],
           color: kPrimaryColor,
           borderType: BorderType.RRect,
-          radius: Radius.circular(12),
-          padding: EdgeInsets.all(15),
+          radius: const Radius.circular(12),
+          padding: const EdgeInsets.all(15),
           child: Stack(
             children: [
               GestureDetector(
                 onTap: () => showModalBottomSheet(
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                         borderRadius:
                             BorderRadius.vertical(top: Radius.circular(12))),
                     context: context,
                     builder: (context) => Container(
-                          padding: EdgeInsets.all(16),
+                          padding: const EdgeInsets.all(16),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,13 +81,13 @@ class _HomePageState extends State<HomePage> {
                                   color: kSecondBlackColor.withOpacity(0.1),
                                 ),
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Text(
                                 "Ambil Photo",
                                 style: blackTextStyle.copyWith(
                                     fontSize: 18, fontWeight: semiBold),
                               ),
-                              SizedBox(height: 20),
+                              const SizedBox(height: 20),
                               Row(
                                 children: [
                                   CustomSelectedPhoto(
@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                                       _pickCamera();
                                     },
                                   ),
-                                  SizedBox(width: 25),
+                                  const SizedBox(width: 25),
                                   CustomSelectedPhoto(
                                       onTap: () {
                                         Navigator.pop(context);
@@ -155,11 +155,11 @@ class _HomePageState extends State<HomePage> {
                           width: 25,
                         ),
                       ))
-                  : SizedBox(),
+                  : const SizedBox(),
             ],
           ),
         ),
-        _image != null ? CustomButton(onPressed: () {}) : SizedBox(),
+        _image != null ? CustomButton(onPressed: () {}) : const SizedBox(),
       ],
     );
   }

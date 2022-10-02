@@ -18,14 +18,14 @@ class CustomStepBantuan extends StatelessWidget {
   Widget build(BuildContext context) {
     return !isLeft
         ? Container(
-            margin: EdgeInsets.only(top: 50),
+            margin: const EdgeInsets.only(top: 50),
             child: Row(
               children: [
                 Image.asset(
                   imgUrl,
                   width: 80,
                 ),
-                SizedBox(width: 24),
+                const SizedBox(width: 24),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +35,7 @@ class CustomStepBantuan extends StatelessWidget {
                         style: blackTextStyle.copyWith(
                             fontWeight: semiBold, fontSize: 16),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
@@ -52,7 +52,7 @@ class CustomStepBantuan extends StatelessWidget {
             ),
           )
         : Container(
-            margin: EdgeInsets.only(top: 50),
+            margin: const EdgeInsets.only(top: 50),
             child: Row(
               children: [
                 Expanded(
@@ -64,7 +64,7 @@ class CustomStepBantuan extends StatelessWidget {
                         style: blackTextStyle.copyWith(
                             fontWeight: semiBold, fontSize: 16),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
@@ -77,7 +77,7 @@ class CustomStepBantuan extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(width: 24),
+                const SizedBox(width: 24),
                 Image.asset(
                   imgUrl,
                   width: 80,

@@ -18,7 +18,7 @@ class CustomSelectedPhoto extends StatelessWidget {
           child: Container(
             width: 60,
             height: 60,
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
@@ -31,7 +31,7 @@ class CustomSelectedPhoto extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 15),
+        const SizedBox(height: 15),
         Text(
           text,
           style: blackTextStyle,

@@ -8,10 +8,10 @@ class AppModule extends Module {
   AppModule(this.showHome);
   List<ModularRoute> get routes => [
         ChildRoute(Modular.initialRoute,
-            child: (context, args) => SplashPage()),
+            child: (context, args) => const SplashPage()),
         ChildRoute("/main",
-            duration: Duration(seconds: 1),
+            duration: const Duration(seconds: 1),
             transition: TransitionType.leftToRight,
-            child: (_, __) => showHome ? OnBoardingPage() : MainPage())
+            child: (_, __) => showHome ? MainPage() : const OnBoardingPage())
       ];
 }

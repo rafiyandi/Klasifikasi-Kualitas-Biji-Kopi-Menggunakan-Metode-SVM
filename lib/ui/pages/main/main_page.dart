@@ -6,7 +6,7 @@ import 'package:kopi/ui/pages/profile/profile_page.dart';
 import 'package:kopi/ui/style/theme.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key? key}) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
