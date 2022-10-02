@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kopi/ui/pages/help/help_page.dart';
-import 'package:kopi/ui/pages/home-page/home_page.dart';
-import 'package:kopi/ui/pages/main-page/custom_bottom_navigation_bar.dart';
+import 'package:kopi/ui/pages/home/home_page.dart';
+import 'package:kopi/ui/pages/main/custom_bottom_navigation_bar.dart';
 import 'package:kopi/ui/pages/profile/profile_page.dart';
 import 'package:kopi/ui/style/theme.dart';
 

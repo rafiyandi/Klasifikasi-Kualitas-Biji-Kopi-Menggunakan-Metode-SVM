@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:kopi/ui/pages/home-page/custom_button.dart';
-import 'package:kopi/ui/pages/home-page/custom_selected_photo.dart';
+import 'package:kopi/ui/pages/home/custom_button.dart';
+import 'package:kopi/ui/pages/home/custom_selected_photo.dart';
 import 'package:kopi/ui/style/theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -65,7 +65,8 @@ class _HomePageState extends State<HomePage> {
               GestureDetector(
                 onTap: () => showModalBottomSheet(
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.vertical(top: Radius.circular(12))),
+                        borderRadius:
+                            BorderRadius.vertical(top: Radius.circular(12))),
                     context: context,
                     builder: (context) => Container(
                           padding: EdgeInsets.all(16),
