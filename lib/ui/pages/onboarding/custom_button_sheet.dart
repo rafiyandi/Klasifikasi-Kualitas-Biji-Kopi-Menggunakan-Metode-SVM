@@ -22,8 +22,7 @@ class CustomButtonSheet extends StatelessWidget {
         children: [
           CustomButtonSlide(
               controller: controller,
-              onPressed: () => controller.previousPage(
-                  duration: Duration(milliseconds: 500), curve: Curves.easeIn),
+              onPressed: () => controller.jumpToPage(2),
               text: "Skip"),
           Center(
             child: SmoothPageIndicator(

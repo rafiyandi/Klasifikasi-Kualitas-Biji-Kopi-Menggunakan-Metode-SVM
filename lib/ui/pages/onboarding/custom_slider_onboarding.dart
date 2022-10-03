@@ -33,7 +33,7 @@ class CustomSliderOnboarding extends StatelessWidget {
           SizedBox(height: 30),
           Text(
             text,
-            style: blackTextStyle.copyWith(
+            style: kGreyTextStyle.copyWith(
               fontSize: 16,
               fontWeight: medium,
             ),

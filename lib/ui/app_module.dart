@@ -12,6 +12,10 @@ class AppModule extends Module {
         ChildRoute("/main",
             duration: const Duration(seconds: 1),
             transition: TransitionType.leftToRight,
-            child: (_, __) => showHome ? MainPage() : const OnBoardingPage())
+            child: (_, __) => showHome ? MainPage() : const OnBoardingPage()),
+        ChildRoute("/second-main", 
+        duration: const Duration(seconds: 1),
+            transition: TransitionType.leftToRight,
+        child: (_, __) => MainPage())
       ];
 }

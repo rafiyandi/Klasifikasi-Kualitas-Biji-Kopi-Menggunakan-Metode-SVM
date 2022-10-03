@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:kopi/ui/pages/main/main_page.dart';
 import 'package:kopi/ui/style/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,11 +19,7 @@ class CustomButtonGetStarted extends StatelessWidget {
         onPressed: () async {
           final prefs = await SharedPreferences.getInstance();
           prefs.setBool('showHome', true);
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => MainPage(),
-              ));
+          Modular.to.pushNamed("/second-main");
         },
         style: TextButton.styleFrom(
             backgroundColor: kPrimaryColor,
