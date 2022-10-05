@@ -9,16 +9,6 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget backgroundProfile() {
-      return Container(
-        width: double.infinity,
-        height: 400,
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/image/image_background2.png"))),
-      );
-    }
-
     Widget sosialMedia() {
       return Container(
         margin: EdgeInsets.only(top: 20),
