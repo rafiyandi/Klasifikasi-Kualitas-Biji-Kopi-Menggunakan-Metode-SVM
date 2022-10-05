@@ -19,7 +19,7 @@ class CustomButtonGetStarted extends StatelessWidget {
         onPressed: () async {
           final prefs = await SharedPreferences.getInstance();
           prefs.setBool('showHome', true);
-          Modular.to.pushNamed("/second-main");
+          Modular.to.pushReplacementNamed("/second-main");
         },
         style: TextButton.styleFrom(
             backgroundColor: kPrimaryColor,
