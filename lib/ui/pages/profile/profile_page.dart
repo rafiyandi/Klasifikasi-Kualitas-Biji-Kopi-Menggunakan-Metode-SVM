@@ -114,7 +114,7 @@ class ProfilePage extends StatelessWidget {
               imgUrl: "assets/icon/icon_judul.png",
               title: "Judul Skripsi",
               text:
-                  "Klasifikasi Kualitas Cutra Biji Kopi Arabika Berdasarkan Tekstur Dan Warna Dengan Menggunakan Metode Svm"),
+                  "Klasifikasi Kualitas Citra Biji Kopi Arabika Berdasarkan Tekstur Dan Warna Dengan Menggunakan Metode Svm"),
           CustomBiodata(
               imgUrl: "assets/icon/icon_jumlah_bersaudara.png",
               title: "Jumlah Bersaudara",
@@ -172,7 +172,7 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             pinned: true,
-            expandedHeight: 400,
+            expandedHeight: 405,
             flexibleSpace: FlexibleSpaceBar(
                 background: Stack(
               children: [
