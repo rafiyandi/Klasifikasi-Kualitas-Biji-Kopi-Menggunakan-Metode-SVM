@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kopi/ui/pages/profile/custom_biodata.dart';
 import 'package:kopi/ui/pages/profile/custom_sosial_media.dart';
 import 'package:kopi/ui/style/theme.dart';
+import 'package:kopi/utils/url_launcher.dart' as launcher;
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -25,6 +26,11 @@ class ProfilePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CustomSosialMedia(
+              onPressed: () {
+                launcher.launcherWebview(
+                    url: Uri.parse(
+                        "https://instagram.com/arifbudiprayoga?igshid=YmMyMTA2M2Y="));
+              },
               imgUrl: "assets/icon/icon_instagram.png",
               text: "Instagram",
             ),
@@ -34,8 +40,13 @@ class ProfilePage extends StatelessWidget {
               color: kWhiteColor,
             ),
             CustomSosialMedia(
+              onPressed: () {
+                launcher.launcherWebview(
+                    url: Uri.parse(
+                        "https://www.linkedin.com/in/arif-budi-prayoga-763680235"));
+              },
               imgUrl: "assets/icon/icon_linkedin.png",
-              text: "Instagram",
+              text: "Linkedin",
             ),
           ],
         ),
@@ -76,7 +87,7 @@ class ProfilePage extends StatelessWidget {
                   kWhiteTextStyle.copyWith(fontWeight: semiBold, fontSize: 18),
             ),
             Text(
-              "Senior Software Engineer",
+              "Junior Software Engineer",
               style: kWhiteTextStyle.copyWith(
                   fontWeight: medium, fontSize: 16, color: kBackgroundColor),
             ),
@@ -88,7 +99,11 @@ class ProfilePage extends StatelessWidget {
 
     Widget biodata() {
       return Column(
-        children: [
+        children: const [
+          CustomBiodata(
+              imgUrl: "assets/icon/icon_nim.png",
+              title: "Nim",
+              text: "180170155"),
           CustomBiodata(
               imgUrl: "assets/icon/icon_email.png",
               title: "Email",
@@ -110,9 +125,18 @@ class ProfilePage extends StatelessWidget {
               title: "Judul Skripsi",
               text:
                   "Klasifikasi Kualitas Cutra Biji Kopi Arabika Berdasarkan Tekstur Dan Warna Dengan Menggunakan Metode Svm"),
-          SizedBox(
-            height: 100,
-          ),
+          CustomBiodata(
+              imgUrl: "assets/icon/icon_jumlah_bersaudara.png",
+              title: "Jumlah Bersaudara",
+              text: "1 orang (anak ke 2)"),
+          CustomBiodata(
+              imgUrl: "assets/icon/icon_pembimbing.png",
+              title: "Pembimbing 1",
+              text: "Wahyu, Fuadi ST., M.IT"),
+          CustomBiodata(
+              imgUrl: "assets/icon/icon_pembimbing.png",
+              title: "Pembimbing 2",
+              text: "Ar Razi, ST., M.Cs"),
         ],
       );
     }
@@ -120,10 +144,7 @@ class ProfilePage extends StatelessWidget {
     Widget content() {
       return SliverToBoxAdapter(
         child: Container(
-          margin: EdgeInsets.only(
-            left: 16,
-            right: 16,
-          ),
+          margin: EdgeInsets.only(left: 16, right: 16, bottom: 130),
           child: Column(
             children: [biodata()],
           ),

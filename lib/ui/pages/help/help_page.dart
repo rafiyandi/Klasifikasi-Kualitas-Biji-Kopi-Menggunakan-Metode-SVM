@@ -7,29 +7,32 @@ class HelpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView(
-        padding:
-            const EdgeInsets.only(left: 24, right: 24, top: 30, bottom: 30),
-        children: const [
-          SizedBox(height: 20),
-          CustomStepBantuan(
-              imgUrl: "assets/image/image_bantuan1.png",
-              step: "Step 1",
-              text:
-                  "Kopi adalah minuman hasil seduhan biji kopi yang telah disangrai dan dihaluskan menjadi bubuk. "),
-          CustomStepBantuan(
-              isLeft: true,
-              imgUrl: "assets/image/image_bantuan2.png",
-              step: "Step 2",
-              text:
-                  "Kopi adalah minuman hasil seduhan biji kopi yang telah disangrai dan dihaluskan menjadi bubuk. "),
-          CustomStepBantuan(
-              imgUrl: "assets/image/image_bantuan3.png",
-              step: "Step 3",
-              text:
-                  "Kopi adalah minuman hasil seduhan biji kopi yang telah disangrai dan dihaluskan menjadi bubuk. ")
-        ],
-      ),
+      child: content(),
+    );
+  }
+
+  Widget content() {
+    return ListView(
+      padding: const EdgeInsets.only(left: 24, right: 24, top: 30, bottom: 30),
+      children: const [
+        SizedBox(height: 20),
+        CustomStepBantuan(
+            imgUrl: "assets/image/image_bantuan1.png",
+            step: "Step 1",
+            text:
+                "Kopi adalah minuman hasil seduhan biji kopi yang telah disangrai dan dihaluskan menjadi bubuk. "),
+        CustomStepBantuan(
+            isLeft: true,
+            imgUrl: "assets/image/image_bantuan2.png",
+            step: "Step 2",
+            text:
+                "Kopi adalah minuman hasil seduhan biji kopi yang telah disangrai dan dihaluskan menjadi bubuk. "),
+        CustomStepBantuan(
+            imgUrl: "assets/image/image_bantuan3.png",
+            step: "Step 3",
+            text:
+                "Kopi adalah minuman hasil seduhan biji kopi yang telah disangrai dan dihaluskan menjadi bubuk. ")
+      ],
     );
   }
 }
