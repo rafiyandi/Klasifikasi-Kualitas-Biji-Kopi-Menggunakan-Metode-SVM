@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
       height: 48,
       margin: const EdgeInsets.only(top: 70),
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: TextButton.styleFrom(
             backgroundColor: kPrimaryColor,
             shape: RoundedRectangleBorder(

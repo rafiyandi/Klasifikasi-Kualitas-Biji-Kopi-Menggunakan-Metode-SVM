@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:kopi/models/klasifikasi_model.dart';
+import 'package:kopi/services/klasifikasi_services.dart';
 import 'package:kopi/ui/pages/home/custom_button.dart';
 import 'package:kopi/ui/pages/home/custom_selected_photo.dart';
 import 'package:kopi/ui/style/theme.dart';
@@ -15,6 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  KlasifikasiModel? klasifikasiModel;
   XFile? _image;
   final ImagePicker _picker = ImagePicker();
 
@@ -159,7 +162,20 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        _image != null ? CustomButton(onPressed: () {}) : const SizedBox(),
+        _image != null
+            ? CustomButton(onPressed: () async {
+                KlasifikasiModel result = await KlasifikasiServices()
+                    .klasifikasi(XFile(_image!.path));
+                if (result != null) {
+                  setState(() {
+                    klasifikasiModel = result;
+                  });
+                  print(klasifikasiModel);
+                } else {
+                  print("Coba Lagi");
+                }
+              })
+            : const SizedBox(),
       ],
     );
   }

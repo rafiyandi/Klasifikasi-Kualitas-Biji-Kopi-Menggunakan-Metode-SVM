@@ -172,7 +172,7 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             pinned: true,
-            expandedHeight: 405,
+            expandedHeight: 400,
             flexibleSpace: FlexibleSpaceBar(
                 background: Stack(
               children: [
