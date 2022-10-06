@@ -10,7 +10,7 @@ class KlasifikasiServices {
   String url = "http://192.168.179.80:8000/api/predict";
   Dio dio = Dio();
 
-  Future<KlasifikasiModel> klasifikasi(XFile gambar) async {
+  Future klasifikasi(XFile gambar) async {
     String fileName = gambar.path.split('/').last;
 
     try {
@@ -23,7 +23,7 @@ class KlasifikasiServices {
 
       if (response.statusCode == 200) {
         print("ini adalah data ${response.data}");
-        final data = response.data;
+        final data = jsonDecode(response.data);
 
         KlasifikasiModel klasifikasiModel = KlasifikasiModel.fromJson(data);
         // print("Klasifikasi Model $klasifikasiModel");
