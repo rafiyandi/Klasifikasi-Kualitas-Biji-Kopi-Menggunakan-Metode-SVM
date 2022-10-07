@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kopi/models/klasifikasi_model.dart';
 import 'package:kopi/ui/pages/home/custom_button.dart';
+import 'package:kopi/ui/pages/home/custom_button_loading.dart';
 import 'package:kopi/ui/pages/home/custom_file_image.dart';
 import 'package:kopi/ui/pages/home/custom_image_state.dart';
 import 'package:kopi/ui/pages/home/custom_selected_photo.dart';
@@ -55,38 +56,47 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<KlasifikasiBloc, KlasifikasiState>(
       listener: (context, state) {
         if (state is KlasifikasiFailed) {
           ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text("data")));
+              .showSnackBar(SnackBar(content: Text("Gagal Klasifikasi")));
         }
         if (state is KlasifikasiSucces) {
+          setState(() {
+            isLoading = false;
+          });
           showDialogKlasikasiBerhasil(context, state);
         }
       },
       builder: (context, state) {
         if (state is KlasifikasiLoading) {
-          return const Center(
-            child: CircularProgressIndicator(
-              color: Color(0xff5C40CC),
-              strokeWidth: 3,
-            ),
-          );
+          isLoading = true;
+
+          // return const Center(
+          //   child: CircularProgressIndicator(
+          //     color: Color(0xff5C40CC),
+          //     strokeWidth: 3,
+          //   ),
+          // );
         }
-        return ListView(
-          padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.3,
-              left: 30,
-              right: 30),
-          children: [
-            boxImageKlasifikasi(context),
-            _image != null
-                ? buttonProsesKlasifikasi(context)
-                : const SizedBox(),
-          ],
+        return Scaffold(
+          body: ListView(
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.2,
+                left: 30,
+                right: 30),
+            children: [
+              boxImageKlasifikasi(context),
+              _image != null
+                  ? buttonProsesKlasifikasi(context)
+                  : const SizedBox(),
+            ],
+          ),
         );
       },
     );
@@ -106,19 +116,27 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 "Hasil Klasifikasi",
-                style: blackTextStyle.copyWith(fontSize: 16, fontWeight: bold),
+                style: blackTextStyle.copyWith(fontSize: 18, fontWeight: bold),
               ),
-              CustomImageResult(hasil: state.hasil.urlAsli ?? ''),
-              CustomImageResult(hasil: state.hasil.urlGRY ?? ''),
-              CustomImageResult(hasil: state.hasil.urlLBP ?? ''),
+              CustomImageResult(
+                  hasil: state.hasil.urlAsli ?? '', text: "Citra Asli"),
+              CustomImageResult(
+                  hasil: state.hasil.urlGRY ?? '', text: 'Citra Grayscale'),
+              CustomImageResult(
+                  hasil: state.hasil.urlLBP ?? '',
+                  text: 'Tekstur local binary pattern'),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               Text(
-                "Kualitas Kopi : ${state.hasil.hasil}",
+                "Hasil Analisis Biji Kopi",
+                style: blackTextStyle.copyWith(fontSize: 16, fontWeight: bold),
+              ),
+              Text(
+                "Biji Kualitas : ${state.hasil.hasil}",
                 style:
-                    blackTextStyle.copyWith(fontSize: 16, fontWeight: semiBold),
-              )
+                    blackTextStyle.copyWith(fontSize: 16, fontWeight: medium),
+              ),
             ],
           ),
         ),
@@ -127,13 +145,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget buttonProsesKlasifikasi(BuildContext context) {
-    return CustomButton(onPressed: () async {
-      context
-          .read<KlasifikasiBloc>()
-          .add(KlasifikasiCheck(XFile(_image!.path)));
+    return !isLoading
+        ? CustomButton(onPressed: () async {
+            context
+                .read<KlasifikasiBloc>()
+                .add(KlasifikasiCheck(XFile(_image!.path)));
 
-      // }
-    });
+            // }
+          })
+        : CustomButtonLoading();
   }
 
   Widget boxImageKlasifikasi(BuildContext context) {

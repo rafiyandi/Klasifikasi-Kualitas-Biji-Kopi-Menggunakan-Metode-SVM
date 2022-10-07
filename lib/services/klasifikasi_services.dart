@@ -7,7 +7,7 @@ import 'package:kopi/models/klasifikasi_model.dart';
 import 'package:dio/dio.dart';
 
 class KlasifikasiServices {
-  String url = "http://192.168.1.3:8000/api/predict";
+  String url = "http://192.168.179.80:8000/api/predict";
   Dio dio = Dio();
 
   Future<KlasifikasiModel> klasifikasi(XFile gambar) async {
@@ -32,7 +32,16 @@ class KlasifikasiServices {
         throw Exception("Gagal Klasifikasi");
       }
     } on DioError catch (e) {
-      throw Exception("Salah $e");
+      switch (e.response!.statusCode) {
+        case 400:
+          final data = e.response?.data;
+
+          return data;
+        case 500:
+          final data = e.response?.data;
+          return data;
+      }
+      throw Exception(e);
     }
   }
 }
