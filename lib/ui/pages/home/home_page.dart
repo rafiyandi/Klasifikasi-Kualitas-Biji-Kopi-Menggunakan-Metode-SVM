@@ -52,11 +52,13 @@ class _HomePageState extends State<HomePage> {
     if (_image != null) {
       setState(() {
         _image = null;
+        isFloating = false;
       });
     }
   }
 
   bool isLoading = false;
+  bool isFloating = false;
 
   @override
   Widget build(BuildContext context) {
@@ -69,25 +71,44 @@ class _HomePageState extends State<HomePage> {
         if (state is KlasifikasiSucces) {
           setState(() {
             isLoading = false;
+            isFloating = true;
           });
           showDialogKlasikasiBerhasil(context, state);
+          klasifikasiModel = KlasifikasiModel(
+              hasil: state.hasil.hasil,
+              urlAsli: state.hasil.urlAsli,
+              urlGRY: state.hasil.urlGRY,
+              urlLBP: state.hasil.urlLBP);
         }
       },
       builder: (context, state) {
         if (state is KlasifikasiLoading) {
           isLoading = true;
-
-          // return const Center(
-          //   child: CircularProgressIndicator(
-          //     color: Color(0xff5C40CC),
-          //     strokeWidth: 3,
-          //   ),
-          // );
         }
         return Scaffold(
+          floatingActionButton: isFloating
+              ? GestureDetector(
+                  onTap: (() => showDialogFloatingActionButton(context)),
+                  child: Container(
+                      margin: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).size.height * 0.12),
+                      padding: EdgeInsets.all(6),
+                      width: 42,
+                      height: 42,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: kPrimaryColor),
+                      ),
+                      child: Image.asset(
+                        "assets/icon/icon_judul.png",
+                        width: double.infinity,
+                        color: kPrimaryColor,
+                      )),
+                )
+              : SizedBox(),
           body: ListView(
             padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.2,
+                top: MediaQuery.of(context).size.height * 0.25,
                 left: 30,
                 right: 30),
             children: [
@@ -134,6 +155,48 @@ class _HomePageState extends State<HomePage> {
               ),
               Text(
                 "Biji Kualitas : ${state.hasil.hasil}",
+                style:
+                    blackTextStyle.copyWith(fontSize: 16, fontWeight: medium),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<dynamic> showDialogFloatingActionButton(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        contentPadding: EdgeInsets.all(16),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        content: SingleChildScrollView(
+          child: Column(
+            children: [
+              Text(
+                "Hasil Klasifikasi",
+                style: blackTextStyle.copyWith(fontSize: 18, fontWeight: bold),
+              ),
+              CustomImageResult(
+                  hasil: klasifikasiModel!.urlAsli ?? '', text: "Citra Asli"),
+              CustomImageResult(
+                  hasil: klasifikasiModel!.urlGRY ?? '',
+                  text: 'Citra Grayscale'),
+              CustomImageResult(
+                  hasil: klasifikasiModel!.urlLBP ?? '',
+                  text: 'Tekstur local binary pattern'),
+              SizedBox(
+                height: 30,
+              ),
+              Text(
+                "Hasil Analisis Biji Kopi",
+                style: blackTextStyle.copyWith(fontSize: 16, fontWeight: bold),
+              ),
+              Text(
+                "Biji Kualitas : ${klasifikasiModel!.hasil}",
                 style:
                     blackTextStyle.copyWith(fontSize: 16, fontWeight: medium),
               ),
