@@ -7,7 +7,7 @@ import 'package:kopi/models/klasifikasi_model.dart';
 import 'package:dio/dio.dart';
 
 class KlasifikasiServices {
-  String url = "http://192.168.179.80:8000/api/predict";
+  String url = "http://192.168.1.3:8000/api/predict";
   Dio dio = Dio();
 
   Future<KlasifikasiModel> klasifikasi(XFile gambar) async {

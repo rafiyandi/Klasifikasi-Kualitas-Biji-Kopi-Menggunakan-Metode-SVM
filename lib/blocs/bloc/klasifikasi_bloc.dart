@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:kopi/models/klasifikasi_model.dart';
 import 'package:kopi/services/klasifikasi_services.dart';
 
 part 'klasifikasi_event.dart';
@@ -15,7 +16,7 @@ class KlasifikasiBloc extends Bloc<KlasifikasiEvent, KlasifikasiState> {
           //membuat variable untuk menyimpan nilai kembalian dari service
           final res = await KlasifikasiServices().klasifikasi(event.gambar);
           if (res != null) {
-            emit(KlasifikasiSucces());
+            emit(KlasifikasiSucces(res));
           } else {
             emit(KlasifikasiFailed("Gagal Klasifikasi"));
           }

@@ -19,4 +19,7 @@ class KlasifikasiFailed extends KlasifikasiState {
   List<Object> get props => [e];
 }
 
-class KlasifikasiSucces extends KlasifikasiState {}
+class KlasifikasiSucces extends KlasifikasiState {
+  KlasifikasiModel hasil;
+  KlasifikasiSucces(this.hasil);
+}
