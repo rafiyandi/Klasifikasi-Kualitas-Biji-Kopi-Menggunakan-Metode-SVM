@@ -13,9 +13,9 @@ class AppModule extends Module {
             duration: const Duration(seconds: 1),
             transition: TransitionType.leftToRight,
             child: (_, __) => showHome ? MainPage() : const OnBoardingPage()),
-        ChildRoute("/second-main", 
-        duration: const Duration(seconds: 1),
+        ChildRoute("/second-main",
+            duration: const Duration(seconds: 1),
             transition: TransitionType.leftToRight,
-        child: (_, __) => MainPage())
+            child: (_, __) => MainPage()),
       ];
 }

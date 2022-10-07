@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kopi/models/klasifikasi_model.dart';
 import 'package:kopi/services/klasifikasi_services.dart';
@@ -130,22 +131,18 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       )
-                    : Column(
-                        children: [
-                          Container(
-                            width: double.infinity,
-                            height: 200,
-                            decoration: BoxDecoration(
-                              color: kGreyColor.withOpacity(0.4),
-                              borderRadius: BorderRadius.circular(12),
-                              image: DecorationImage(
-                                  image: FileImage(
-                                    File(_image!.path),
-                                  ),
-                                  fit: BoxFit.cover),
-                            ),
-                          ),
-                        ],
+                    : Container(
+                        width: double.infinity,
+                        height: 200,
+                        decoration: BoxDecoration(
+                          color: kGreyColor.withOpacity(0.4),
+                          borderRadius: BorderRadius.circular(12),
+                          image: DecorationImage(
+                              image: FileImage(
+                                File(_image!.path),
+                              ),
+                              fit: BoxFit.cover),
+                        ),
                       ),
               ),
               _image != null
@@ -164,16 +161,16 @@ class _HomePageState extends State<HomePage> {
         ),
         _image != null
             ? CustomButton(onPressed: () async {
-                KlasifikasiModel result = await KlasifikasiServices()
-                    .klasifikasi(XFile(_image!.path));
-                if (result != null) {
-                  setState(() {
-                    klasifikasiModel = result;
-                  });
-                  print(klasifikasiModel);
-                } else {
-                  print("Coba Lagi");
-                }
+                // KlasifikasiModel result = await KlasifikasiServices()
+                //     .klasifikasi(XFile(_image!.path));
+                // if (result != null) {
+                //   setState(() {
+                //     klasifikasiModel = result;
+                //   });
+                //   print(klasifikasiModel);
+                // } else {
+                //   print("Coba Lagi");
+                // }
               })
             : const SizedBox(),
       ],
