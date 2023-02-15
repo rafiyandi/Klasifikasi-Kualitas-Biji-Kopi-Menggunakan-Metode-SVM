@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <title>Hasil Pengujian</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-light bg-light">
+        <div class="mx-auto">
+          <p class="navbar-brand mb-0 h1 text-center">
+            Identifikasi Kualitas Kopi Takengon
+          </p>
+        </div>
+      </nav>
+
+      <section class="content mt-5">
+        <div class="row text-center">
+          <div class="col col-lg-4">
+            <div class="card border-0">
+              <div class="card-bod">
+                <img
+                  src="{{ gambarAsli }}"
+                  alt=""
+                  class="card-img-top"
+                  style="width: 300px"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">Gambar Asli</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-4">
+            <div class="card border-0">
+              <div class="card-bod">
+                <img
+                  src="{{ gambarHsv }}"
+                  alt=""
+                  class="card-img-top"
+                  style="width: 300px"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">Gambar Greyscale</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col col-lg-4">
+            <div class="card border-0">
+              <div class="card-bod">
+                <img
+                  src="{{ gambarLBP }}"
+                  alt=""
+                  class="card-img-top"
+                  style="width: 300px"
+                />
+                <div class="card-body">
+                  <h6 class="card-title">Gambar LBP</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-primary mt-3">
+          <!-- <a href="{{url_for('downloadDatauji')}}" class="btn btn-info">print</a> -->
+          <div class="row">
+            <div class="col">
+              <p class="mx-2 h4">Nilai LBP :</p>
+              {% for lbp in prediction %} {% for key, value in lbp.items() %} {%
+              if key != "kelas" %}
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item fs-6">{{ key }} : {{ value }}</li>
+              </ul>
+              {% endif %} {% endfor %} {% endfor %}
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col">
+              <p class="mx-2 h4">Nilai RGB :</p>
+              {% for rgb in nilaihvs %} {% for key, value in rgb.items() %}
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item fs-6">{{ key }} : {{ value }}</li>
+              </ul>
+              {% endfor %} {% endfor %}
+            </div>
+          </div>
+          <div class="row mt-2 mb-2 text-center">
+            <div class="col">
+              <!-- <form
+                action="{{url_for('svm')}}"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                <input type="text" name="prediction" value="{{ prediction }}" />
+                <button class="btn btn-info">Klasifikasi SVM</button>
+              </form> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-3 border border-primary">
+          <div class="row">
+            <div class="col">
+              <p class="mx-2 fs-4">Hasil Klasifikasi qualitas bijik kopi : {{  "bagus" if hasil[0] == 1 else "sedang" if hasil[0] == 2 else "buruk" }}</p>
+            </div>
+            <div class="col">
+              <form action="{{url_for('downloadDatauji')}}" method="post">
+                <button
+                  class="btn btn-sm btn-info mt-2"
+                  value="download Hasil uji"
+                >
+                  download Hasil uji
+                </button>
+
+                <button
+                  class="btn btn-sm btn-info mt-2"
+                  onClick="window.print()"
+                >
+                  Print this page
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br />
+      <footer class="text-center text-lg-start position-sticky bg-info">
+        <!-- Copyright -->
+        <div
+          class="text-center text-white p-3"
+          style="background-color: rgba(0, 0, 0, 0.2)"
+        >
+          © 2022 Copyright:
+          <a class="text-white" href="#">Arif Budi Prayaga</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

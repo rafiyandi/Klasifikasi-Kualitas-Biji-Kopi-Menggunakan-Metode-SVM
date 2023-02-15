@@ -1,0 +1,143 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.kopi"
+4    android:versionCode="4001"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:3:5-67
+11-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:3:22-64
+12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+12-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:4:5-81
+12-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:4:22-78
+13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+13-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:5:5-80
+13-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:5:22-77
+14
+15    <queries>
+15-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:6:5-12:15
+16
+17        <!-- If your app opens https URLs -->
+18        <intent>
+18-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:8:9-11:18
+19            <action android:name="android.intent.action.VIEW" />
+19-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:9:13-65
+19-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:9:21-62
+20
+21            <data android:scheme="https" />
+21-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:10:13-44
+21-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:10:19-41
+22        </intent>
+23    </queries>
+24
+25    <application
+26        android:name="android.app.Application"
+26-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:15:9-42
+27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+27-->[androidx.core:core:1.8.0] C:\Users\rafiy\.gradle\caches\transforms-3\d363e3b5616f580c766e3e2b3c05f27d\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+28        android:icon="@mipmap/launcher_icon"
+28-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:17:9-45
+29        android:label="Coffe Classification"
+29-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:14:9-45
+30        android:requestLegacyExternalStorage="true" >
+30-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:16:9-52
+31        <activity
+31-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:18:9-38:20
+32            android:name="com.example.kopi.MainActivity"
+32-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:19:13-41
+33            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+33-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:23:13-163
+34            android:exported="true"
+34-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:20:13-36
+35            android:hardwareAccelerated="true"
+35-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:24:13-47
+36            android:launchMode="singleTop"
+36-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:21:13-43
+37            android:theme="@style/LaunchTheme"
+37-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:22:13-47
+38            android:windowSoftInputMode="adjustResize" >
+38-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:25:13-55
+39
+40            <!--
+41                 Specifies an Android theme to apply to this Activity as soon as
+42                 the Android process has started. This theme is visible to the user
+43                 while the Flutter UI initializes. After that, this theme continues
+44                 to determine the Window background behind the Flutter UI.
+45            -->
+46            <meta-data
+46-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:30:13-33:17
+47                android:name="io.flutter.embedding.android.NormalTheme"
+47-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:31:15-70
+48                android:resource="@style/NormalTheme" />
+48-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:32:15-52
+49
+50            <intent-filter>
+50-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:34:13-37:29
+51                <action android:name="android.intent.action.MAIN" />
+51-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:35:17-68
+51-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:35:25-66
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:36:17-76
+53-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:36:27-74
+54            </intent-filter>
+55        </activity>
+56        <!--
+57             Don't delete the meta-data below.
+58             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+59        -->
+60        <meta-data
+60-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:41:9-43:33
+61            android:name="flutterEmbedding"
+61-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:42:13-44
+62            android:value="2" />
+62-->E:\freelancer\kopi\kopi\android\app\src\main\AndroidManifest.xml:43:13-30
+63
+64        <provider
+64-->[:image_picker_android] E:\freelancer\kopi\kopi\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-18:20
+65            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+65-->[:image_picker_android] E:\freelancer\kopi\kopi\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-82
+66            android:authorities="com.example.kopi.flutter.image_provider"
+66-->[:image_picker_android] E:\freelancer\kopi\kopi\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-74
+67            android:exported="false"
+67-->[:image_picker_android] E:\freelancer\kopi\kopi\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-37
+68            android:grantUriPermissions="true" >
+68-->[:image_picker_android] E:\freelancer\kopi\kopi\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-47
+69            <meta-data
+69-->[:image_picker_android] E:\freelancer\kopi\kopi\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-17:75
+70                android:name="android.support.FILE_PROVIDER_PATHS"
+70-->[:image_picker_android] E:\freelancer\kopi\kopi\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:16:17-67
+71                android:resource="@xml/flutter_image_picker_file_paths" />
+71-->[:image_picker_android] E:\freelancer\kopi\kopi\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:17:17-72
+72        </provider>
+73
+74        <activity
+74-->[:url_launcher_android] E:\freelancer\kopi\kopi\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-13:74
+75            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+75-->[:url_launcher_android] E:\freelancer\kopi\kopi\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-74
+76            android:exported="false"
+76-->[:url_launcher_android] E:\freelancer\kopi\kopi\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-37
+77            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+77-->[:url_launcher_android] E:\freelancer\kopi\kopi\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-71
+78
+79        <uses-library
+79-->[androidx.window:window:1.0.0-beta04] C:\Users\rafiy\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+80            android:name="androidx.window.extensions"
+80-->[androidx.window:window:1.0.0-beta04] C:\Users\rafiy\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+81            android:required="false" />
+81-->[androidx.window:window:1.0.0-beta04] C:\Users\rafiy\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+82        <uses-library
+82-->[androidx.window:window:1.0.0-beta04] C:\Users\rafiy\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+83            android:name="androidx.window.sidecar"
+83-->[androidx.window:window:1.0.0-beta04] C:\Users\rafiy\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+84            android:required="false" />
+84-->[androidx.window:window:1.0.0-beta04] C:\Users\rafiy\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+85    </application>
+86
+87</manifest>

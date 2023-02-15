@@ -7,11 +7,12 @@ import 'package:kopi/models/klasifikasi_model.dart';
 import 'package:dio/dio.dart';
 
 class KlasifikasiServices {
-  String url = "http://192.168.179.80:8000/api/predict";
+  String url = "http://192.168.96.80:8000/api/predict";
   Dio dio = Dio();
 
   Future<KlasifikasiModel> klasifikasi(XFile gambar) async {
     String fileName = gambar.path.split('/').last;
+    print("ini gambar" + gambar.toString());
 
     try {
       var formData = FormData.fromMap({

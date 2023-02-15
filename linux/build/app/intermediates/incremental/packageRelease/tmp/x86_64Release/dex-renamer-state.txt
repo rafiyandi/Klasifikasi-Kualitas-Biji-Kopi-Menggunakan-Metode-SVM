@@ -1,0 +1,4 @@
+#Fri Oct 07 21:43:38 ICT 2022
+base.0=E\:\\freelancer\\kopi\\kopi\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

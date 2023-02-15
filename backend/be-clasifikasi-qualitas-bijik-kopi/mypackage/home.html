@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <title>Tugas Akhir</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-light bg-light">
+        <div class="mx-auto">
+          <p class="navbar-brand mb-0 h1 text-center">
+            Identifikasi Kualitas Kopi Takengon
+          </p>
+        </div>
+      </nav>
+      
+      
+      <div class="mt-5 pt-5">
+        <div class="row-cols-lg-4 d-flex justify-content-center mt-5 mb-3">
+           <a href="{{url_for('dataLatih')}}" class="btn btn-info text-white">Lihat Data Latih</a>
+        </div>
+        <div class="row-cols-lg-4 d-flex justify-content-center">
+          <a href="{{url_for('pengujian')}}" class="btn btn-info text-white">Identifikasi Kualitas Daging Kambing</a>
+        </div>
+      </div>
+
+
+
+      <footer class="text-center text-lg-start fixed-bottom bg-info">
+        <!-- Copyright -->
+        <div
+          class="text-center text-white p-3"
+          style="background-color: rgba(0, 0, 0, 0.2)"
+        >
+          © 2022 Copyright :
+          <a class="text-white" href="#">Arif Budi Prayoga</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
